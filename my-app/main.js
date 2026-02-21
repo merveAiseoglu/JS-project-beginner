@@ -25,21 +25,5 @@ document.addEventListener("DOMContentLoaded", () => {
     const sehirInput = document.getElementById("sehir");
     const sonucDiv = document.getElementById("sonuc");
 
-    havaForm.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        const sehir = sehirInput.value.trim();
-        if (sehir === "") return;
-
-        const veri = await app.weatherService.getWeather(sehir);
-        if (veri) {
-            sonucDiv.innerHTML = `
-                <p><strong>${veri.name}</strong> için hava durumu: ${veri.weather[0].description}</p>
-                <p>Sıcaklık: ${veri.main.temp} °C</p>
-            `;
-        } else {
-            sonucDiv.innerHTML = "<p>Şehir bulunamadı.</p>";
-        }
-
-        sehirInput.value = "";
-    });
+    
 });
